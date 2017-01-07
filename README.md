@@ -35,4 +35,4 @@ NOTE
 ```
 
 ## Output
-![Swift GIF Image](http://i.imgur.com/y6jHCsX.gif)
+![Output Image](https://raw.githubusercontent.com/kor45cw/Retrofit-tutorial/develop/output.png)
