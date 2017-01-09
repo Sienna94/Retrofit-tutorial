@@ -29,12 +29,15 @@ public class MainActivity extends AppCompatActivity {
     @BindView(R.id.userid_result) TextView useridResultTextView;
     @BindView(R.id.title_result) TextView titleResultTextView;
 
+    RetroClient retroClient;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
+        retroClient = RetroClient.getInstance(this).createBaseApi();
         mLink.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
@@ -42,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.get1)
     void get1() {
         Toast.makeText(this, "GET 1 Clicked", Toast.LENGTH_SHORT).show();
-        RetroClient.getInstance(this).createBaseApi().getFirst("1", new RetroCallback() {
+        retroClient.getFirst("1", new RetroCallback() {
             @Override
             public void onError(Throwable t) {
                 Log.e(LOG, t.toString());
@@ -77,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
     @OnClick(R.id.get2)
     void get2() {
         Toast.makeText(this, "GET 2 Clicked", Toast.LENGTH_SHORT).show();
-        RetroClient.getInstance(this).createBaseApi().getSecond("1", new RetroCallback() {
+        retroClient.getSecond("1", new RetroCallback() {
             @Override
             public void onError(Throwable t) {
                 Log.e(LOG, t.toString());
@@ -125,7 +128,7 @@ public class MainActivity extends AppCompatActivity {
         parameters.put("body", "bar");
         parameters.put("userId", 1);
 
-        RetroClient.getInstance(this).createBaseApi().postFirst(parameters, new RetroCallback() {
+        retroClient.postFirst(parameters, new RetroCallback() {
             @Override
             public void onError(Throwable t) {
                 Log.e(LOG, t.toString());
@@ -167,7 +170,7 @@ public class MainActivity extends AppCompatActivity {
         parameters.put("userId", 1);
         parameters.put("id", 1);
 
-        RetroClient.getInstance(this).createBaseApi().putFirst(parameters, new RetroCallback() {
+        retroClient.putFirst(parameters, new RetroCallback() {
             @Override
             public void onError(Throwable t) {
                 Log.e(LOG, t.toString());
@@ -203,7 +206,7 @@ public class MainActivity extends AppCompatActivity {
     void patch() {
         Toast.makeText(this, "PATCH Clicked", Toast.LENGTH_SHORT).show();
 
-        RetroClient.getInstance(this).createBaseApi().patchFirst("foo", new RetroCallback() {
+        retroClient.createBaseApi().patchFirst("foo", new RetroCallback() {
             @Override
             public void onError(Throwable t) {
                 Log.e(LOG, t.toString());
@@ -239,7 +242,7 @@ public class MainActivity extends AppCompatActivity {
     void delete() {
         Toast.makeText(this, "DELETE Clicked", Toast.LENGTH_SHORT).show();
 
-        RetroClient.getInstance(this).createBaseApi().deleteFirst(new RetroCallback() {
+        retroClient.deleteFirst(new RetroCallback() {
             @Override
             public void onError(Throwable t) {
                 Log.e(LOG, t.toString());
