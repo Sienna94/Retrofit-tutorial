@@ -2,20 +2,20 @@
 
 This is a sample project to show how to use Retrofit Libaray in your Android App.
 
+- Java based
+- use Android X 
+- use databinding
+
+
 ## Used Libaray (사용한 라이브러리)
 
 - [Retrofit](https://square.github.io/retrofit)
-- [Butterknife](http://jakewharton.github.io/butterknife)
 - [JSONPlaceholder](http://jsonplaceholder.typicode.com)
 
 ```groovy
 dependencies {
-    compile 'com.squareup:otto:1.3.8'
-    compile 'com.squareup.retrofit2:retrofit:2.1.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
-
-  compile 'com.jakewharton:butterknife:8.4.0'
-  annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.6.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.1'
 }
 ```
 
@@ -29,7 +29,9 @@ dependencies {
 6. ResponseGet : received form in get method
 
 NOTE
+
 - Add Internet permission in AndroidManifest.xml
+- (Android Q) add network_security_config.xml
 ```
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
