@@ -9,10 +9,10 @@ import java.util.Objects;
 
 public class RequestPut {
 
-    public final int userId;
-    public final int id;
-    public final String title;
-    public final String body;
+    private final int userId;
+    private final int id;
+    private final String title;
+    private final String body;
 
     public RequestPut(HashMap<String, Object> parameters) {
         this.userId = (int) parameters.get("userId");
